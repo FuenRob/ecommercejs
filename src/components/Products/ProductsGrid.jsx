@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import ProductItem from "./ProductItem";
+import ProductItem from "./Item/ProductItem";
+
+import useStyles from './styles';
 
 const products = [
     { id: 1, name: 'Shoes', description: 'Running shoes.', price: '60€', image: 'https://contents.mediadecathlon.com/p1065653/k$cb01eeb4a566ba5e51d88ef08c914482/sq/Skechers+Flex+Advantage+Hombre+Zapatillas+Caminar+Negro.webp?f=1000x1000'},
@@ -8,8 +10,11 @@ const products = [
 ]
 
 const ProductsGrid = () => {
+    const classes = useStyles();
+
     return (
-        <main>
+        <main className={classes.content}>
+            <div className={classes.toolbar} />
             <Grid container justify={"center"} spacing={4}>
                 {products.map((product) => (
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
