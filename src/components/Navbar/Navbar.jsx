@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 
-import logo from "../../images/logo-e-commerce.jpg";
+import logo from "../../images/commerce.png";
 import useStyles from './styles';
 const Navbar = () => {
     const classes = useStyles();
