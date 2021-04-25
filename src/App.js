@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import ProductsGrid from "./components/Products/ProductsGrid";
+import Cart from './components/Cart/Cart';
 import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
@@ -18,7 +21,6 @@ const App = () => {
 
   const handleAddToCart = async (productId, quantity) => {
     const item = await commerce.cart.add(productId, quantity);
-
     setCart(item.cart);
   }
 
@@ -30,10 +32,19 @@ const App = () => {
   console.log(cart);
 
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
         <Navbar totalItems={cart.total_items} />
-        <ProductsGrid products={products} onAddToCart={handleAddToCart} />
-    </div>
+        <Switch>
+          <Route exact path="/">
+            <ProductsGrid products={products} onAddToCart={handleAddToCart} />
+          </Route>
+          <Route exact path="/cart">
+            <Cart cart={cart} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

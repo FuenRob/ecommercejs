@@ -17,7 +17,7 @@ const ProductItem = ({product, onAddToCart }) => {
                 </div>
                 <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="h7" color={"testSecondary"} />
             </CardContent>
-            <CardActions disableSpacing className={classes.cardActios}>
+            <CardActions disableSpacing className={classes.cardActions}>
                 <IconButton aria-label={"Añadir al carrito"} onClick={() => onAddToCart(product.id, 1)}>
                     <AddShoppingCart />
                 </IconButton>
